@@ -13,10 +13,8 @@ options=('!lto' '!debug')
 source=(
   "git+$url"
   "git+https://github.com/microsoft/vcpkg.git#commit=2960d7d80e8d09c84ae8abf15c12196c2ca7d39a" # 2024-09-30 (Toolchain/BuildVcpkg.sh)
-  "ladybird.desktop"
 )
 sha256sums=(
-  'SKIP'
   'SKIP'
   'SKIP'
 )
