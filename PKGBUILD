@@ -12,7 +12,7 @@ makedepends=(git cmake ninja curl unzip zip tar autoconf-archive nasm)
 options=('!lto' '!debug')
 source=(
   "git+$url"
-  "git+https://github.com/microsoft/vcpkg.git#commit=2960d7d80e8d09c84ae8abf15c12196c2ca7d39a" # 2024-09-30 (Toolchain/BuildVcpkg.sh)
+  "git+https://github.com/microsoft/vcpkg/commit/b2cb0da531c2f1f740045bfe7c4dac59f0b2b69c" # 2024-11-16 (Toolchain/BuildVcpkg.sh)
 )
 sha256sums=(
   'SKIP'
