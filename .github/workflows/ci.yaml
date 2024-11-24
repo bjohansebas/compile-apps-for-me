@@ -10,6 +10,7 @@ on:
         type: choice
         options:
         - ladybird
+        - deemix
 
 jobs:
   ladybird:
@@ -30,3 +31,22 @@ jobs:
       uses: actions/upload-artifact@b4b15b8c7c6ac21ea08fcf65892d2ee8f75cf882
       with:
         path: ${{ steps.makepkg.outputs.pkgfile0 }}
+  deemix:
+    runs-on: ubuntu-latest
+    if: github.event.inputs.app == 'deemix'
+    steps:
+    - name: Checkout
+      run: git clone https://gitlab.com/RemixDev/deemix-gui.git . && git submodule update --init --recursive
+    - name: Use Node.js 22
+      uses: actions/setup-node@v4
+      with:
+        node-version: 22
+    - name: Install Dependencies
+      run: yarn install-all
+    - name: Build
+      run: yarn run dist
+    - name: Upload Artifact
+      uses: actions/upload-artifact@b4b15b8c7c6ac21ea08fcf65892d2ee8f75cf882
+      with:
+        path: dist/deemix-gui.AppImage
+
