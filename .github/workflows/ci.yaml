@@ -1,11 +1,20 @@
-name: PKGBUILD CI
+name: Compile Apps for Me
 
 on: 
   workflow_dispatch:
+    inputs:
+      app:
+        description: 'App to compile'
+        required: true
+        default: 'ladybird'
+        type: choice
+        options:
+        - ladybird
 
 jobs:
-  pkgbuild:
+  ladybird:
     runs-on: ubuntu-latest
+    if: github.event.inputs.app == 'ladybird'
     steps:
     - name: Checkout
       uses: actions/checkout@v2
